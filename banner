@@ -9,27 +9,25 @@
 =         TegarXLu GKI Kernel       =
 ======================================
 > Version 1.0
-> Codename Genesis
+> Codename Wakacaw
 > Variant SukiSUxSUSFS
 > Upstream 12-5.10.238
 > LTO=full
-> Enable CONFIG_300_HZ
 > Compiled CLANG-19
-> Set user/admin reserve memory to 0
 > Set sched_tunable_scaling to NONE
 > Enable clearcache
 > Avoid redundant frequency updates in schedutil policy
 > Apply frequency averaging when scaling down to smooth transitions
 > Enable DAMON sysfs
 ======================================
-[+] Activating Aetherium Layer...
+[+] Activating TegarXLu Layer...
   > Restoring ancient tuning scripts........ OK
   > Applying scheduler enhancements ......... OK
   > Blessing GPU pathways with mana......... OK
   > ZRAM ether-balancing initialized ........ OK
-» Aetherium has emerged from the Void.
+» TegarXLu has emerged from the Void.
 
 [✓] Activated
 ======================================
-== Breath the Aether-Feels the Lightning ==
+== Flasing Kernel Done ==
 ======================================
