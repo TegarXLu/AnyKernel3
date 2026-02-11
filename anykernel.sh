@@ -1,34 +1,47 @@
-# AnyKernel3 Ramdisk Mod Script
-# osm0sis @ xda-developers
+### AnyKernel3 Ramdisk Mod Script
+## osm0sis @ xda-developers
 
-## AnyKernel setup
-# begin properties
+### AnyKernel setup
+# global properties
 properties() { '
-kernel.string=GKI by TegarXLu
+kernel.string=TegarXLu 6.6.86 kernel Full LTO
 do.devicecheck=0
 do.modules=0
 do.systemless=0
 do.cleanup=1
 do.cleanuponabort=0
+device.name1=rodin
+device.name2=
+device.name3=
+device.name4=
+device.name5=
 supported.versions=
 supported.patchlevels=
-device.name1=
-device.name2=
 supported.vendorpatchlevels=
 '; } # end properties
 
-# shell variables
-block=boot;
-is_slot_device=1;
-ramdisk_compression=auto;
 
-## AnyKernel methods (DO NOT CHANGE)
-# import patching functions/variables - see for reference
-. tools/ak3-core.sh;
+### AnyKernel install
+## boot shell variables
+block=boot
+is_slot_device=auto
+ramdisk_compression=auto
+patch_vbmeta_flag=auto
+no_magisk_check=1
 
-## AnyKernel install
-dump_boot;
+# import functions/variables and setup patching - see for reference (DO NOT REMOVE)
+. tools/ak3-core.sh
 
+kernel_version=$(cat /proc/version | awk -F '-' '{print $1}' | awk '{print $3}')
 
-write_boot;
-## end install
+ui_print "Flashing kernel 6.6.86_TegarXLu-ReSukisu+Susfs+Kpm..."
+
+# boot install
+if [ -L "/dev/block/bootdevice/by-name/init_boot_a" -o -L "/dev/block/by-name/init_boot_a" ]; then
+    split_boot # for devices with init_boot ramdisk
+    flash_boot # for devices with init_boot ramdisk
+else
+    dump_boot # use split_boot to skip ramdisk unpack, e.g. for devices with init_boot ramdisk
+    write_boot # use flash_boot to skip ramdisk repack, e.g. for devices with init_boot ramdisk
+fi
+## end boot install

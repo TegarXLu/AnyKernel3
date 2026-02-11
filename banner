@@ -11,9 +11,9 @@
 > Version 1.0
 > Codename Wakacaw
 > Variant SukiSUxSUSFS
-> Upstream 12-5.10.238
+> Upstream 15-6.6.89
 > LTO=full
-> Compiled CLANG-19
+> Compiled CLANG Greenforce
 > Set sched_tunable_scaling to NONE
 > Enable clearcache
 > Avoid redundant frequency updates in schedutil policy
